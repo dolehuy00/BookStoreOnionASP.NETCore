@@ -1,0 +1,18 @@
+﻿@using Shared
+@model BookDTO
+
+<h2>Book Details</h2>
+
+<p><strong>Title:</strong> @Model.Title</p>
+<p><strong>Author:</strong> @Model.Author</p>
+<p><strong>Publisher:</strong> @Model.Publisher</p>
+<p><strong>Price:</strong> @Model.Price</p>
+<p><strong>Discount Price:</strong> @Model.DiscountPrice</p>
+<p><strong>Quantity:</strong> @Model.Quantity</p>
+<p><strong>Created On:</strong> @Model.CreateOn</p>
+<p><strong>Description:</strong> @Model.Description</p>
+<p><strong>Is Active:</strong> @Model.IsActive</p>
+<p><strong>Category Id:</strong> @Model.CategoryId</p>
+<p><strong>Category Id:</strong> @Model.CategoryName</p>
+
+<a asp-action="Index">Back to List</a>

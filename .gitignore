@@ -1,0 +1,26 @@
+# Visual Studio
+.vs/
+
+# Visual Studio Code
+.vscode/
+.vscode/*
+.history/
+
+# .NET Core
+Domain/bin/
+Domain/obj/
+
+Infrastructure/bin/
+Infrastructure/obj/
+
+Presentation/bin/
+Presentation/obj/
+
+Service.Abstractions/bin/
+Service.Abstractions/obj/
+
+Services/bin/
+Services/obj/
+
+Shared/bin/
+Shared/obj/

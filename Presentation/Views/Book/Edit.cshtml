@@ -1,0 +1,48 @@
+﻿@using Shared
+@model BookDTO
+
+<h2>Edit Book</h2>
+
+<form asp-action="Edit" method="post">
+    <input asp-for="Id" type="hidden" />
+    <div>
+        <label>Title</label>
+        <input asp-for="Title" />
+    </div>
+    <div>
+        <label>Author</label>
+        <input asp-for="Author" />
+    </div>
+    <div>
+        <label>Publisher</label>
+        <input asp-for="Publisher" />
+    </div>
+    <div>
+        <label>Price</label>
+        <input asp-for="Price" />
+    </div>
+    <div>
+        <label>Discount Price</label>
+        <input asp-for="DiscountPrice" />
+    </div>
+    <div>
+        <label>Quantity</label>
+        <input asp-for="Quantity" />
+    </div>
+    <div>
+        <label>Description</label>
+        <textarea asp-for="Description"></textarea>
+    </div>
+    <div>
+        <label>Is Active</label>
+        <input asp-for="IsActive" type="checkbox" />
+    </div>
+    <div>
+        <label>Category</label>
+        <select asp-for="CategoryId" asp-items="ViewBag.Categories"></select>
+    </div>
+    <button type="submit">Save</button>
+</form>
+
+<a asp-action="Index">Back to List</a>
+

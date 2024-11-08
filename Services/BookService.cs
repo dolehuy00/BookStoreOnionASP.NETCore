@@ -31,7 +31,7 @@ namespace Services
 
         public async Task Delete(int bookId)
         {
-            await _genericRepo.DeleteAsync(bookId);
+            _genericRepo.Delete(bookId);
             await _genericRepo.SaveChangesAsync();
         }
 
@@ -73,6 +73,13 @@ namespace Services
             var book = await _bookRepo.Get(bookId);
             if (book == null) return null;
             return _bookMapper.ToDTO(book);
+        }
+
+        public async Task<ICollection<BookDTO>> SearchName(string name)
+        {
+            if (string.IsNullOrEmpty(name)) name = "";
+            var books = await _genericRepo.FindAsync(b => b.Title.Contains(name));
+            return _bookMapper.ToListDTO(books);
         }
     }
 }

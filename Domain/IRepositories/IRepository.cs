@@ -8,7 +8,7 @@ namespace Domain.IRepositories
         Task<T?> GetByIdAsync(int id);
         Task AddAsync(T entity);
         void Update(T entity);
-        Task DeleteAsync(int id);
+        void Delete(int id);
         Task<ICollection<T>> FindAsync(Expression<Func<T, bool>> predicate);
         Task SaveChangesAsync();
     }

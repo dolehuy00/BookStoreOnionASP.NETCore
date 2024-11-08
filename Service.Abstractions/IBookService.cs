@@ -12,5 +12,6 @@ namespace Service.Abstractions
         Task<BookDTO?> Get(int bookId);
         Task<ICollection<BookDTO>> GetAllFullInfo();
         Task<BookDTO?> GetFullInfo(int bookId);
+        Task<ICollection<BookDTO>> SearchName(string name);
     }
 }

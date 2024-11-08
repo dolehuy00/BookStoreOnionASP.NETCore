@@ -27,5 +27,12 @@ namespace Infrastructure.Repositories
                 .Include(b => b.Category)
                 .ToListAsync();
         }
+
+        public async Task<ICollection<Book>> SearchName(string name)
+        {
+            return await _dbContext.Books
+                .Where(b => b.Title.Contains(name))
+                .ToListAsync();
+        }
     }
 }

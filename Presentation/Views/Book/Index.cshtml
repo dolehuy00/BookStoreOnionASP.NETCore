@@ -21,7 +21,11 @@
 
 <h2>Book List</h2>
 <a asp-action="Create">Add New Book</a>
-
+@using (Html.BeginForm("SearchName","Book",FormMethod.Get))
+{
+    <input type="text" name="name" value="" />
+    <button type="submit">Search</button>
+}
 <table>
     <thead>
         <tr>

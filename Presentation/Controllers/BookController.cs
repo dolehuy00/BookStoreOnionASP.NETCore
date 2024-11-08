@@ -94,5 +94,11 @@ namespace Presentation.Controllers
             await _bookService.Delete(id);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public async Task<IActionResult> SearchName(string name)
+        {
+            var books = await _bookService.SearchName(name);
+            return View("Index", books);
+        }
     }
 }

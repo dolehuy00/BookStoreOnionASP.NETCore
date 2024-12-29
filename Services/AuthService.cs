@@ -13,9 +13,9 @@ namespace Services
             _userRepo = userRepository;
         }
 
-        public User? Authenticate(string email, string password)
+        public async Task<User?> VerifyUser(string email, string password)
         {
-            return _userRepo.AuthUser(email, password);
+            return await _userRepo.AuthUser(email, password);
         }
     }
 }

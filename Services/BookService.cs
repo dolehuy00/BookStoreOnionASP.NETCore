@@ -23,7 +23,7 @@ namespace Services
         public async Task<BookDTO> Add(BookDTO bookDTO)
         {
             var book = _bookMapper.ToEntity(bookDTO);
-            await _genericRepo.AddAsync(book);
+            _genericRepo.Add(book);
             await _genericRepo.SaveChangesAsync();
             bookDTO.Id = book.Id;
             return bookDTO;

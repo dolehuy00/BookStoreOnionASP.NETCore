@@ -6,7 +6,7 @@ using Shared;
 
 namespace Presentation.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Policy = "AdminOnly")]
     public class BookController : Controller
     {
         private readonly IBookService _bookService;

@@ -4,6 +4,6 @@ namespace Domain.IRepositories
 {
     public interface IUserRepository
     {
-        User? AuthUser(string email, string password);
+        Task<User?> AuthUser(string email, string password);
     }
 }

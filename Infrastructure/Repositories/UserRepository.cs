@@ -13,11 +13,11 @@ namespace Infrastructure.Repositories
         {
             _dbContext = bookDbContext;
         }
-        public User? AuthUser(string email, string password)
+        public async Task<User?> AuthUser(string email, string password)
         {
-            return _dbContext.Users
+            return await _dbContext.Users
                 .Include(u => u.Role)
-                .FirstOrDefault(u => u.Email == email && u.Password == password);
+                .FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
         }
     }
 }

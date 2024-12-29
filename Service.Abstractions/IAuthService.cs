@@ -4,6 +4,6 @@ namespace Service.Abstractions
 {
     public interface IAuthService
     {
-        User? Authenticate(string username, string password);
+        Task<User?> VerifyUser(string username, string password);
     }
 }

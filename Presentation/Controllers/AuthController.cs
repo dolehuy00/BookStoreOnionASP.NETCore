@@ -24,7 +24,7 @@ namespace Presentation.Controllers
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
-            var user = _authService.Authenticate(email, password);
+            var user = _authService.VerifyUser(email, password);
             if (user == null)
             {
                 ModelState.AddModelError("", "Invalid username or password");

@@ -14,7 +14,7 @@ namespace Infrastructure.Repositories
 
         public async Task PlaceOrderAsync(Order order)
         {
-            await _unitOfWork.Orders.AddAsync(order);
+            _unitOfWork.Orders.Add(order);
 
             foreach (var item in order.OrderItems!)
             {

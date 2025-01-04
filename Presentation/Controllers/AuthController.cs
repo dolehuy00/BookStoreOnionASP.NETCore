@@ -22,9 +22,9 @@ namespace Presentation.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(string email, string password)
+        public async Task<IActionResult> Login(string email, string password)
         {
-            var user = _authService.VerifyUser(email, password);
+            var user = await _authService.VerifyUser(email, password);
             if (user == null)
             {
                 ModelState.AddModelError("", "Invalid username or password");
@@ -38,7 +38,7 @@ namespace Presentation.Controllers
             };
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var authProperties = new AuthenticationProperties();
-            HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
 
             if (user.Role!.Name == "Admin")
             {

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Service.Abstractions;
 using System.Security.Claims;
 
-namespace Presentation.Controllers
+namespace Web.Controllers
 {
     public class AuthController : Controller
     {
@@ -33,12 +33,17 @@ namespace Presentation.Controllers
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.Email),
-                new Claim(ClaimTypes.Role, user.Role!.Name)
+                new(ClaimTypes.Name, user.Email),
+                new(ClaimTypes.Role, user.Role!.Name)
             };
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-            var authProperties = new AuthenticationProperties();
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
+            var authProperties = new AuthenticationProperties
+            {
+                IsPersistent = true,
+                ExpiresUtc = DateTime.UtcNow.AddDays(7)
+            };
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity), authProperties);
 
             if (user.Role!.Name == "Admin")
             {

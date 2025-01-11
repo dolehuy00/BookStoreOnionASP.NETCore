@@ -1,13 +1,17 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Abstractions;
 using Shared;
 
-namespace Presentation.Controllers
+namespace Web.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/book")]
     [ApiController]
-    [Authorize(Policy = "AdminOnly")]
+    [Authorize(
+        AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme,
+        Policy = "AdminOnly")
+    ]
     public class BookApiController : ControllerBase
     {
         private readonly IBookService _bookService;

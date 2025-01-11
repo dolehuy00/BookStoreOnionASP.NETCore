@@ -1,10 +1,14 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Abstractions;
 
 namespace Web.Controllers
 {
-    [Authorize(Policy = "AdminOnly")]
+    [Authorize(
+        AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme,
+        Policy = "AdminOnly")
+    ]
     public class CategoryController : Controller
     {
         private readonly ICategoryService _cateServ;

@@ -3,13 +3,13 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace MovieAppApi.Service
+namespace Web.Service
 {
-    public class TokenService
+    public class JwtTokenService
     {
         private readonly IConfiguration _config;
 
-        public TokenService(IConfiguration config)
+        public JwtTokenService(IConfiguration config)
         {
             _config = config;
         }

@@ -1,20 +1,20 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MovieAppApi.Service;
 using Service.Abstractions;
 using Shared;
 using Shared.Api;
+using Web.Service;
 
-namespace Presentation.Controllers.Api
+namespace Web.Controllers.Api
 {
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     [ApiController]
     public class AuthApiController : ControllerBase
     {
         private IAuthService _authService;
-        private readonly TokenService _tokenServ;
+        private readonly JwtTokenService _tokenServ;
 
-        public AuthApiController(IAuthService authService, TokenService tokenService)
+        public AuthApiController(IAuthService authService, JwtTokenService tokenService)
         {
             _authService = authService;
             _tokenServ = tokenService;
@@ -30,7 +30,7 @@ namespace Presentation.Controllers.Api
                 var user = await _authService.VerifyUser(loginDTO.Email, loginDTO.Password);
                 if (user != null)
                 {
-                    var accessToken = _tokenServ.GenerateAccessToken(user.Id.ToString(), "user.RoleName!");
+                    var accessToken = _tokenServ.GenerateAccessToken(user.Id.ToString(), user.Role!.Name);
                     var ipAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
                     var response = new
                     {

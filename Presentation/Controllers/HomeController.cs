@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Presentation.Controllers
+namespace Web.Controllers
 {
     public class HomeController : Controller
     {
@@ -11,7 +12,10 @@ namespace Presentation.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(
+            AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme,
+            Policy = "AdminOnly")
+        ]
         public IActionResult AdminIndex()
         {
             return View();

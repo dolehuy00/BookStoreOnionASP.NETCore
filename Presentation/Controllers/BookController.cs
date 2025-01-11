@@ -1,12 +1,16 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Service.Abstractions;
 using Shared;
 
-namespace Presentation.Controllers
+namespace Web.Controllers
 {
-    [Authorize(Policy = "AdminOnly")]
+    [Authorize(
+        AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme,
+        Policy = "AdminOnly")
+    ]
     public class BookController : Controller
     {
         private readonly IBookService _bookService;
@@ -24,12 +28,14 @@ namespace Presentation.Controllers
             ViewBag.Categories = new SelectList(categories, "Id", "Name");
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var bookDTOs = await _bookService.GetAllFullInfo();
             return View(bookDTOs);
         }
 
+        [HttpGet]
         public async Task<IActionResult> Detail(int id)
         {
             var book = await _bookService.GetFullInfo(id);
@@ -95,6 +101,7 @@ namespace Presentation.Controllers
             await _bookService.Delete(id);
             return RedirectToAction("Index");
         }
+
         [HttpGet]
         public async Task<IActionResult> SearchName(string name)
         {

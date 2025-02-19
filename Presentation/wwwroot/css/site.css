@@ -20,3 +20,57 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* admin layout */
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #8a8a8a;
+}
+
+.col-user-profile {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: var(--bs-gutter-x, .75rem);
+}
+
+.col-notification {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: var(--bs-gutter-x, .75rem);
+}
+
+.col-notification i {
+    font-size: 23px;
+}
+
+.col-notification i span {
+    font-size: 9px;
+}
+
+.col-dark-light-mode {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: var(--bs-gutter-x, .75rem);
+}
+
+.col-dark-light-mode i {
+    font-size: 23px;
+    color: #d9a832;
+}
+
+.col-language-mode {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: var(--bs-gutter-x, .75rem);
+}
+
+.col-language-mode img {
+    width: 30px;
+    height: 30px;
+}
+
+/*end admin layout */

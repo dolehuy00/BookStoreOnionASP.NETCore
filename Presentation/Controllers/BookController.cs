@@ -7,32 +7,33 @@ using Shared;
 
 namespace Web.Controllers
 {
-    [Authorize(
-        AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme,
-        Policy = "AdminOnly")
-    ]
+    [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
     public class BookController : Controller
     {
         private readonly IBookService _bookService;
         private readonly ICategoryService _cateServ;
 
+        // constructor
         public BookController(IBookService bookService, ICategoryService cateServ)
         {
             _bookService = bookService;
             _cateServ = cateServ;
         }
 
+        // get categories from database to selectList
         private async Task PopulateCategories()
         {
             var categories = await _cateServ.GetAllCategories();
             ViewBag.Categories = new SelectList(categories, "Id", "Name");
         }
 
+        // 
         [HttpGet]
+        [Authorize(Policy = "AdminOnly")]
         public async Task<IActionResult> Index()
         {
             var bookDTOs = await _bookService.GetAllFullInfo();
-            return View(bookDTOs);
+            return View("Admin/Index", bookDTOs);
         }
 
         [HttpGet]

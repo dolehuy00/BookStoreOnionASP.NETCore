@@ -21,6 +21,10 @@ body {
   margin-bottom: 60px;
 }
 
+.bg-header-light {
+    background-color: #dddddd;
+}
+
 /* admin layout */
 
 .user-profile img {
@@ -74,3 +78,10 @@ body {
 }
 
 /*end admin layout */
+
+/* auth layout */
+
+
+
+
+/*end auth layout */

@@ -7,6 +7,8 @@ namespace Web.Controllers
     public class HomeController : Controller
     {
         [AllowAnonymous]
+        [HttpGet("home")]
+        [HttpGet("")]
         public IActionResult UserIndex()
         {
             return View();
@@ -16,6 +18,7 @@ namespace Web.Controllers
             AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme,
             Policy = "AdminOnly")
         ]
+        [HttpGet("/manage")]
         public IActionResult AdminIndex()
         {
             return View();

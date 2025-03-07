@@ -15,13 +15,13 @@ namespace Web.Controllers
             _authService = authService;
         }
 
-        [HttpGet]
+        [HttpGet("login")]
         public IActionResult Login()
         {
             return View();
         }
 
-        [HttpPost]
+        [HttpPost("login")]
         public async Task<IActionResult> Login(string email, string password)
         {
             var user = await _authService.VerifyUser(email, password);
@@ -60,7 +60,7 @@ namespace Web.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login");
+            return RedirectToAction("UserIndex", "Home");
         }
 
         public IActionResult AccessDenied()

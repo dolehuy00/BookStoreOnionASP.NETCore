@@ -6,24 +6,34 @@
     <title>@ViewData["Title"] - Book Store</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Presentation.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-header-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Book Store</a>
+    <header>        
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col">
+                    <nav class="navbar navbar-expand-lg navbar-light justify-content-start">
+                        <i class="fa-solid fa-book-open-reader me-2 logo-header text-color-mode"></i>
+                        <a class="navbar-brand text-color-mode" href="/">Book Store</a>
+                    </nav>
+                </div>
+                <div class="col-auto align-middle col-language-mode">
+                    <img src="/img/flag/vietnam-flag-icon.png" />
+                </div>
+                <div title="Dark/light mode" onclick="toggleTheme()" class="col-auto align-middle col-dark-light-mode me-3 pe-0 cusor-pointer">
+                    <i id="icon-dark-mode" class="fa-solid fa-sun"></i>
+                </div>
             </div>
-        </nav>
+        </div>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="footer text-muted">
         <div class="container">
             &copy; 2024 - Huy Do
         </div>

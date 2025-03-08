@@ -20,17 +20,14 @@
 
 html {
     font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
     html {
         font-size: 16px;
     }
-}
-
-html {
-    position: relative;
-    min-height: 100%;
 }
 
 body {
@@ -44,13 +41,12 @@ input {
     transition: var(--transition-bg), var(--transition-color) !important;
 }
 
-input:-webkit-autofill {
-    transition: background-color 9999s ease-in-out 0s, color 9999s ease-in-out 0s, var(--transition-webkit-box-shadow) !important;
-    background-color: transparent !important;
-    -webkit-box-shadow: 0 0 0px 1000px var(--bg-color-input) inset !important;
-    -webkit-text-fill-color: var(--text-color-input) !important;
-}
-
+    input:-webkit-autofill {
+        transition: background-color 9999s ease-in-out 0s, color 9999s ease-in-out 0s, var(--transition-webkit-box-shadow) !important;
+        background-color: transparent !important;
+        -webkit-box-shadow: 0 0 0px 1000px var(--bg-color-input) inset !important;
+        -webkit-text-fill-color: var(--text-color-input) !important;
+    }
 
 .text-color-mode {
     transition: var(--transition-color);
@@ -70,3 +66,67 @@ input:-webkit-autofill {
 .cusor-pointer {
     cursor: pointer;
 }
+
+
+
+/* HEADER */
+
+.user-profile-header img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #8a8a8a;
+}
+
+.notification-header {
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: var(--bs-gutter-x, .75rem);
+}
+
+    .notification-header i {
+        font-size: 23px;
+    }
+
+        .notification-header i span {
+            font-size: 9px;
+        }
+
+.col-dark-light-mode {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: var(--bs-gutter-x, .75rem);
+}
+
+    .col-dark-light-mode i {
+        font-size: 23px;
+        color: #d9a832;
+    }
+
+.col-language-mode {
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: var(--bs-gutter-x, .75rem);
+}
+
+    .col-language-mode img {
+        width: 30px;
+        height: 30px;
+    }
+
+.logo-header {
+    font-size: 1.8750rem;
+}
+
+/* END HEADER */
+
+
+/* DROPDOWN */
+
+.dropdown-item:hover {
+    background-color: var(--bg-color-input)
+}
+
+/* END DROPDOWN */
+

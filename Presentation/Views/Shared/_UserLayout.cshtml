@@ -6,34 +6,32 @@
     <title>@ViewData["Title"] - Book Store</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/user.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
 </head>
 <body>
     <header>
-        <div class="container-fluid">
-            <div class="row align-items-center bg-light">
+        <div class="container-fluid px-5">
+            <div class="row align-items-center border-bottom">  
                 <div class="col">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <div class="container-fluid">
-                            <a class="navbar-brand" href="#">Book Manager</a>
+                        <div class="container-fluid justify-content-start px-0">
+                            <i class="fa-solid fa-book-open-reader me-2 logo-header text-color-mode"></i>
+                            <a class="navbar-brand text-color-mode" href="/">Book Store</a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                                    </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Management
+                                        <a class="nav-link dropdown-toggle text-color-mode" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Page
                                         </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <ul class="dropdown-menu bg-color-mode" aria-labelledby="navbarDropdown">
+                                            <li><a class="dropdown-item text-color-mode" href="#">Action</a></li>
+                                            <li><a class="dropdown-item text-color-mode" href="#">Another action</a></li>
+                                            <li><hr class="dropdown-divider text-color-mode"></li>
+                                            <li><a class="dropdown-item text-color-mode" href="#">Something else here</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -44,19 +42,18 @@
                 <div class="col-auto align-middle col-language-mode">
                     <img src="/img/flag/vietnam-flag-icon.png" />
                 </div>
-                <div class="col-auto align-middle col-dark-light-mode">
-                    <i class="fa-solid fa-sun"></i>
-                    @* <i class="fa-solid fa-moon"></i> *@
+                <div onclick="toggleTheme()" class="col-auto align-middle col-dark-light-mode">
+                    <i id="icon-dark-mode" class="fa-solid fa-sun"></i>
                 </div>
                 <div class="col-auto align-middle notification-header">
-                    <i class="fa-regular fa-bell position-relative">
+                    <i class="fa-regular fa-bell position-relative text-color-mode">
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                             9
                             <span class="visually-hidden">unread messages</span>
                         </span>
                     </i>
                 </div>
-                <div class="col-auto align-middle col-user-profile">
+                <div class="col-auto align-middle ms-0 ps-0">
                     <div class="user-profile-header">
                         <img src="/img/avatar/M7th.jpg" />
                     </div>
@@ -64,17 +61,19 @@
             </div>  
         </div>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - Huy Do
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+    <footer class="footer text-muted">
+        <div class="container-fluid px-5">
+            <div class="border-top">
+                &copy; 2024 - Huy Do
+            </div>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

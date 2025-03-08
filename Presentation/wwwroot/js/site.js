@@ -1,17 +1,10 @@
 ﻿
 
 ///// Change dark/light mode /////
+
 const iconToggleTheme = document.getElementById("icon-dark-mode");
 
-iconToggleTheme.addEventListener("mouseenter", () => {
-    iconToggleTheme.classList.toggle("fa-moon");
-});
-
-iconToggleTheme.addEventListener("mouseleave", () => {
-    iconToggleTheme.classList.toggle("fa-moon");
-});
-
-// button dark/light click
+// Button dark/light click
 const toggleTheme = () => {
     const currentTheme = document.documentElement.getAttribute("data-theme");
     const newTheme = currentTheme === "dark" ? "light" : "dark";
@@ -24,7 +17,7 @@ const toggleTheme = () => {
 document.addEventListener("DOMContentLoaded", () => {
     const savedTheme = localStorage.getItem("theme") || "light";
     document.documentElement.setAttribute("data-theme", savedTheme);
-    if (savedTheme === "dark") iconToggleTheme.classList.add("fa-moon");
+    if (savedTheme === "dark") iconToggleTheme.classList.remove("fa-moon");
 });
 
 ///// End change dark/light mode /////

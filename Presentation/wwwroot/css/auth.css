@@ -1,0 +1,17 @@
+﻿/* login page */
+
+:root {
+    --bg-login-page: url('/img/background/bg-login-page.png')
+}
+
+[data-theme="dark"] {
+    --bg-login-page: url('/img/background/bg-dark-login-page.png');
+}
+
+.container-login {
+    transition: background-image 0.5s;
+    background-image: var(--bg-login-page);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

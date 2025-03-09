@@ -21,3 +21,35 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 ///// End change dark/light mode /////
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const scrollContainer = document.getElementById("horizontalScrollContainer");
+    const scrollLeftBtn = document.querySelector(".horizontal-scroll-left");
+    const scrollRightBtn = document.querySelector(".horizontal-scroll-right");
+
+    function updateScrollButtons() {
+        if (scrollContainer.scrollLeft <= 0) {
+            scrollLeftBtn.classList.add("hidden");
+        } else {
+            scrollLeftBtn.classList.remove("hidden");
+        }
+
+        if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+            scrollRightBtn.classList.add("hidden");
+        } else {
+            scrollRightBtn.classList.remove("hidden");
+        }
+    }
+
+    scrollLeftBtn.addEventListener("click", function () {
+        scrollContainer.scrollBy({ left: -200, behavior: "smooth" });
+    });
+
+    scrollRightBtn.addEventListener("click", function () {
+        scrollContainer.scrollBy({ left: 200, behavior: "smooth" });
+    });
+
+    scrollContainer.addEventListener("scroll", updateScrollButtons);
+    updateScrollButtons();
+});

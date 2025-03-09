@@ -33,4 +33,70 @@
     opacity: 1;
 }
 
-/* SLIDE */
+/* END SLIDE */
+
+
+.horizontal-scroll-wrapper {
+    position: relative;
+}
+
+.horizontal-scroll-container {
+    overflow-x: auto;
+    scrollbar-width: none; /* Ẩn scrollbar trên Firefox */
+    -ms-overflow-style: none; /* Ẩn scrollbar trên IE/Edge */
+}
+
+    .horizontal-scroll-container::-webkit-scrollbar {
+        display: none; /* Ẩn scrollbar trên Chrome, Safari */
+    }
+
+    .horizontal-scroll-container .row {
+        flex-wrap: nowrap;
+    }
+
+        .horizontal-scroll-container .row .col {
+            min-width: 15rem;
+            max-width: 15rem;
+        }
+
+            .horizontal-scroll-container .row .col img {
+                min-height: 12rem;
+                max-height: 12rem;
+            }
+
+.horizontal-scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.horizontal-scroll-left {
+    left: 0;
+}
+
+.horizontal-scroll-right {
+    right: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.vertical-card-list{
+    margin-top: 2rem;
+}
+    .vertical-card-list .row .col {
+        min-width: 15rem;
+        max-width: 15rem;
+    }
+
+        .vertical-card-list .row .col img {
+            min-height: 12rem;
+            max-height: 12rem;
+        }

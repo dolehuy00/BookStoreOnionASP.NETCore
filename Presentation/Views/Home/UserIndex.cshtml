@@ -2,13 +2,14 @@
     ViewData["Title"] = "Home";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
-
+@* Main container *@
 <div class="container-fluid px-5">
-    <div id="carouselExampleCaptions" class="carousel slide container-slide-top" data-bs-ride="carousel">
+    @* Slide *@
+    <div id="topSlide" class="carousel slide container-slide-top" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#topSlide" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#topSlide" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#topSlide" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -33,11 +34,178 @@
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev text-color-mode" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <button class="carousel-control-prev text-color-mode" type="button" data-bs-target="#topSlide" data-bs-slide="prev">
             <i class="fa-solid fa-chevron-left fs-3"></i>
         </button>
-        <button class="carousel-control-next text-color-mode" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <button class="carousel-control-next text-color-mode" type="button" data-bs-target="#topSlide" data-bs-slide="next">
             <i class="fa-solid fa-chevron-right fs-3"></i>
         </button>
     </div>
+    @* End slide *@
+    @* Render horizontal scroll *@
+    <div class="text-color-mode">
+        <h3>New books</h3>
+        <div class="horizontal-scroll-wrapper">
+            <button class="horizontal-scroll-btn horizontal-scroll-left hidden">❮</button>
+            <div class="horizontal-scroll-container" id="horizontalScrollContainer">
+                <div class="row">
+                    <div class="col px-2">
+                        <div class="card h-100 card-bg-mode">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <h5 class="card-title">The gioi quanh ta toan nhung dieu thu vi</h5>
+                                <p class="mt-1 mb-0">Text for note</p>
+                                <h6 class="mt-1">20.000 đ</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col px-2">
+                        <div class="card h-100 card-bg-mode">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <h5 class="card-title">The gioi quanh ta toan nhung dieu thu vi</h5>
+                                <p class="mt-1 mb-0">Text for note</p>
+                                <h6 class="mt-1">20.000 đ</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col px-2">
+                        <div class="card h-100 card-bg-mode">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <h5 class="card-title">The gioi quanh ta toan nhung dieu thu vi</h5>
+                                <p class="mt-1 mb-0">Text for note</p>
+                                <h6 class="mt-1">20.000 đ</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="horizontal-scroll-btn horizontal-scroll-right">❯</button>
+        </div>
+        <div class="p-2 text-center"> 
+            <a class="text-decoration-none fw-bold link-primary" href="/">
+                View More
+                <span><i class="fa-solid fa-arrow-right"></i> </span>
+             </a>
+        </div>
+    </div>
+    @* End render horizontal scroll *@
+
+    @* Render list product *@
+    <div class="text-color-mode vertical-card-list">
+        <h3>Top seller</h3>
+        <div class="row">
+            <div class="col p-2">
+                <div class="card h-100 card-bg-mode">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body border-top">
+                        <h5 class="card-title">The gioi quanh ta toan nhung dieu thu vi</h5>
+                        <p class="mt-1 mb-0">Text for note</p>
+                        <h6 class="mt-1">20.000 đ</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col p-2">
+                <div class="card h-100 card-bg-mode">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body border-top">
+                        <h5 class="card-title">The gioi quanh ta toan nhung dieu thu vi</h5>
+                        <p class="mt-1 mb-0">Text for note</p>
+                        <h6 class="mt-1">20.000 đ</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col p-2">
+                <div class="card h-100 card-bg-mode">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body border-top">
+                        <h5 class="card-title">The gioi quanh ta toan nhung dieu thu vi</h5>
+                        <p class="mt-1 mb-0">Text for note</p>
+                        <h6 class="mt-1">20.000 đ</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col p-2">
+                <div class="card h-100 card-bg-mode">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body border-top">
+                        <h5 class="card-title">The gioi quanh ta toan nhung dieu thu vi</h5>
+                        <p class="mt-1 mb-0">Text for note</p>
+                        <h6 class="mt-1">20.000 đ</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col p-2">
+                <div class="card h-100 card-bg-mode">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body border-top">
+                        <h5 class="card-title">The gioi quanh ta toan nhung dieu thu vi</h5>
+                        <p class="mt-1 mb-0">Text for note</p>
+                        <h6 class="mt-1">20.000 đ</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col p-2">
+                <div class="card h-100 card-bg-mode">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body border-top">
+                        <h5 class="card-title">The gioi quanh ta toan nhung dieu thu vi</h5>
+                        <p class="mt-1 mb-0">Text for note</p>
+                        <h6 class="mt-1">20.000 đ</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col p-2">
+                <div class="card h-100 card-bg-mode">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body border-top">
+                        <h5 class="card-title">The gioi quanh ta toan nhung dieu thu vi</h5>
+                        <p class="mt-1 mb-0">Text for note</p>
+                        <h6 class="mt-1">20.000 đ</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col p-2">
+                <div class="card h-100 card-bg-mode">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body border-top">
+                        <h5 class="card-title">The gioi quanh ta toan nhung dieu thu vi</h5>
+                        <p class="mt-1 mb-0">Text for note</p>
+                        <h6 class="mt-1">20.000 đ</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col p-2">
+                <div class="card h-100 card-bg-mode">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body border-top">
+                        <h5 class="card-title">The gioi quanh ta toan nhung dieu thu vi</h5>
+                        <p class="mt-1 mb-0">Text for note</p>
+                        <h6 class="mt-1">20.000 đ</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col p-2">
+                <div class="card h-100 card-bg-mode">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body border-top">
+                        <h5 class="card-title">The gioi quanh ta toan nhung dieu thu vi</h5>
+                        <p class="mt-1 mb-0">Text for note</p>
+                        <h6 class="mt-1">20.000 đ</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-2 text-center">
+            <a class="text-decoration-none fw-bold link-primary" href="/">
+                View More
+                <span><i class="fa-solid fa-arrow-right"></i> </span>
+            </a>
+        </div>
+    </div>
+    @* End render list product *@
+
+
 </div>
+@* End main container *@

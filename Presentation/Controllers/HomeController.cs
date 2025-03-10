@@ -11,7 +11,7 @@ namespace Web.Controllers
         [HttpGet("")]
         public IActionResult UserIndex()
         {
-            return View();
+            return View("User/UserIndex");
         }
 
         [Authorize(
@@ -21,7 +21,7 @@ namespace Web.Controllers
         [HttpGet("/manage")]
         public IActionResult AdminIndex()
         {
-            return View();
+            return View("Admin/AdminIndex");
         }
     }
 }

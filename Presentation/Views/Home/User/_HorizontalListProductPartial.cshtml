@@ -1,0 +1,32 @@
+﻿@model Web.ViewModels.ListProductPartialViewModel
+
+<div class="text-color-mode">
+    <h3>@Model.Title</h3>
+    <div class="horizontal-scroll-wrapper">
+        <button class="horizontal-scroll-btn horizontal-scroll-left hidden">❮</button>
+        <div class="horizontal-scroll-container" id="horizontalScrollContainer">
+            <div class="row">
+                @foreach (var item in Model.Items)
+                {
+                    <div class="col px-2">
+                        <div class="card h-100 card-bg-mode">
+                            <img src="@item.Image" class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <h5 class="card-title">@item.Title</h5>
+                                <p class="mt-1 mb-0">@item.Note</p>
+                                <h6 class="mt-1">@item.Price</h6>
+                            </div>
+                        </div>
+                    </div>
+                }    
+            </div>
+        </div>
+        <button class="horizontal-scroll-btn horizontal-scroll-right">❯</button>
+    </div>
+    <div class="p-2 text-center">
+        <a class="text-decoration-none fw-bold link-primary" href="/">
+            View More
+            <span><i class="fa-solid fa-arrow-right"></i> </span>
+        </a>
+    </div>
+</div>

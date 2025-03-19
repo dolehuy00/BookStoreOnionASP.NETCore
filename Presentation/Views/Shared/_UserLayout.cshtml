@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
 </head>
 <body>
+    @* Header *@
     <header>
         <div class="container-fluid px-5">
             <div class="row align-items-center border-bottom">  
@@ -53,6 +54,14 @@
                         </span>
                     </i>
                 </div>
+                <div class="col-auto align-middle cart-header">
+                    <i class="fa-solid fa-cart-shopping position-relative text-color-mode">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            99+
+                            <span class="visually-hidden">cart item count</span>
+                        </span>
+                    </i>
+                </div>
                 <div class="col-auto align-middle ms-0 ps-0">
                     <div class="user-profile-header">
                         <img src="/img/avatar/M7th.png" />
@@ -61,11 +70,13 @@
             </div>  
         </div>
     </header>
-
+    @* Eng header *@
+    @* Main content *@
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
-
+    @*End main content *@
+    @* Footer *@
     <footer class="footer text-color-mode">
         <div class="container-fluid px-5">
             <div class="border-top"></div>
@@ -120,18 +131,18 @@
                     <div class="payment-method">
                         <div class="row pt-2">
                             <div class="col pe-0">
-                                <img src="img/logo/master-card-logo.png" />
+                                <img src="/img/logo/master-card-logo.png" />
                             </div>
                             <div class="col ps-2">
-                                <img src="img/logo/momo-logo.png" />
+                                <img src="/img/logo/momo-logo.png" />
                             </div>
                         </div>
                         <div class="row pt-2">
                             <div class="col pe-0">
-                                <img src="img/logo/zalopay-logo.jpg" />
+                                <img src="/img/logo/zalopay-logo.jpg" />
                             </div>
                             <div class="col ps-2">
-                                <img src="img/logo/visa-logo.png" />
+                                <img src="/img/logo/visa-logo.png" />
                             </div>
                         </div>
                     </div>
@@ -148,11 +159,13 @@
             </div>
         </div>
     </footer>
-
+    @* End footer *@
+    @* Script *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @* Hot reload script*@ <script src="/_framework/aspnetcore-browser-refresh.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    @* End script *@
 </body>
 </html>

@@ -104,6 +104,20 @@ input {
             font-size: 9px;
         }
 
+.cart-header {
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: var(--bs-gutter-x, .75rem);
+}
+
+    .cart-header i {
+        font-size: 23px;
+    }
+
+        .cart-header i span {
+            font-size: 9px;
+        }
+
 .col-dark-light-mode {
     margin-left: 0px;
     padding-left: 0px;

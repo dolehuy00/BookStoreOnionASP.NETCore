@@ -11,7 +11,7 @@ namespace Web.Controllers
         [HttpGet("")]
         public IActionResult UserIndex()
         {
-            return View("User/UserIndex");
+            return View("BasicUser/UserIndex");
         }
 
         [Authorize(

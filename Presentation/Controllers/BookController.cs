@@ -8,6 +8,7 @@ using Shared;
 namespace Web.Controllers
 {
     [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
+    [Route("/book")]
     public class BookController : Controller
     {
         private readonly IBookService _bookService;
@@ -36,7 +37,7 @@ namespace Web.Controllers
             return View("Admin/Index", bookDTOs);
         }
 
-        [HttpGet]
+        [HttpGet("manager")]
         public async Task<IActionResult> Detail(int id)
         {
             var book = await _bookService.GetFullInfo(id);
@@ -108,6 +109,13 @@ namespace Web.Controllers
         {
             var books = await _bookService.SearchName(name);
             return View("Index", books);
+        }
+
+        [HttpGet("detail")]
+        [AllowAnonymous]
+        public IActionResult DetailForBasicUser()
+        {
+            return View("BasicUser/Detail");
         }
     }
 }

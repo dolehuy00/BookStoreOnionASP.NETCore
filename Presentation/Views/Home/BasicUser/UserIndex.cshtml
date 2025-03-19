@@ -55,7 +55,7 @@
             Title = "New Book",
             Items = listItem
         };
-        await Html.RenderPartialAsync("User/_HorizontalListProductPartial", model);
+        await Html.RenderPartialAsync("BasicUser/_HorizontalListProductPartial", model);
     }
     @* End render horizontal scroll *@
 
@@ -79,7 +79,7 @@
             Title = "Recommend for you",
             Items = listItem2
         };
-        await Html.RenderPartialAsync("User/_VerticalListProductPartial", model2);
+        await Html.RenderPartialAsync("BasicUser/_VerticalListProductPartial", model2);
     }
     @* End render list product *@
 

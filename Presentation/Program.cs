@@ -29,7 +29,7 @@ builder.Services.AddAuthentication(options =>
 })
 .AddCookie(options =>
 {
-    options.LoginPath = "/Auth/Login";
+    options.LoginPath = "/login";
     options.AccessDeniedPath = "/Auth/AccessDenied";
 })
 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>

@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "Your cart";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<head>
+    <style>
+        /* Ẩn nút tăng giảm mặc định của input number */
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">Giỏ hàng của bạn</h2>
+        <table class="table table-bordered text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th><input type="checkbox" id="checkAll"></th>
+                    <th>Hình ảnh</th>
+                    <th>Tên sách</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="item-check"></td>
+                    <td><img src="" alt="Sách 1" class="img-thumbnail"></td>
+                    <td>Sách A</td>
+                    <td class="price">100000</td>
+                    <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button class="btn btn-outline-secondary btn-sm minus">-</button>
+                            <input type="number" class="form-control text-center mx-2 quantity" value="1" min="1" style="width: 60px;">
+                            <button class="btn btn-outline-secondary btn-sm plus">+</button>
+                        </div>
+                    </td>
+                    <td class="total-price">100000</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm">Xóa</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between">
+            <h4>Tổng tiền: <span class="text-danger" id="grandTotal">0</span>đ</h4>
+            <button class="btn btn-success">Thanh toán</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('checkAll').addEventListener('change', function () {
+            let checkboxes = document.querySelectorAll('.item-check');
+            checkboxes.forEach(cb => cb.checked = this.checked);
+            updateTotal();
+        });
+
+        document.querySelectorAll('.item-check').forEach(checkbox => {
+            checkbox.addEventListener('change', updateTotal);
+        });
+
+        function updateTotal() {
+            let total = 0;
+            document.querySelectorAll('.item-check:checked').forEach(cb => {
+                let row = cb.closest('tr');
+                total += parseInt(row.querySelector('.total-price').textContent);
+            });
+            document.getElementById('grandTotal').textContent = total;
+        }
+
+        document.querySelectorAll('.plus').forEach(button => {
+            button.addEventListener('click', function () {
+                let row = this.closest('tr');
+                let quantityInput = row.querySelector('.quantity');
+                let price = parseInt(row.querySelector('.price').textContent);
+                let totalPrice = row.querySelector('.total-price');
+
+                quantityInput.value = parseInt(quantityInput.value) + 1;
+                totalPrice.textContent = price * parseInt(quantityInput.value);
+                updateTotal();
+            });
+        });
+
+        document.querySelectorAll('.minus').forEach(button => {
+            button.addEventListener('click', function () {
+                let row = this.closest('tr');
+                let quantityInput = row.querySelector('.quantity');
+                let price = parseInt(row.querySelector('.price').textContent);
+                let totalPrice = row.querySelector('.total-price');
+
+                if (quantityInput.value > 1) {
+                    quantityInput.value = parseInt(quantityInput.value) - 1;
+                    totalPrice.textContent = price * parseInt(quantityInput.value);
+                    updateTotal();
+                }
+            });
+        });
+    </script>
+</body>

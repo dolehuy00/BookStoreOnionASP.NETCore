@@ -4,7 +4,7 @@ namespace Web.Controllers
 {
     public class UserProfileController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Cart()
         {
             return View();
         }

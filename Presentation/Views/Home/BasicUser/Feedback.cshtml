@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Feedback";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Your feedback</h2>
+    <p class="text-center">We always look forward to hearing your feedback to improve our services.</p>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email-or-phone" class="form-label">Email or phone number (optional)</label>
+                    <input type="text" class="form-control" id="email-or-phone" placeholder="Enter your contact information">
+                </div>
+                <div class="mb-3">
+                    <label for="feedback" class="form-label">Feedback content <span class="text-danger">*</span></label>
+                    <textarea class="form-control" id="feedback" rows="5" placeholder="Write your opinion" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Satisfaction Level <span class="text-danger">*</span></label>
+                    <select class="form-select">
+                        <option value="5">Very Satisfied</option>
+                        <option value="4">Satisfied</option>
+                        <option value="3">Neutral</option>
+                        <option value="2">Dissatisfied</option>
+                        <option value="1">Very Dissatisfied</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+</div>

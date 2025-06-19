@@ -17,6 +17,7 @@ namespace Infrastructure.DataContext
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,6 +26,13 @@ namespace Infrastructure.DataContext
                 .HasOne(b => b.Category)
                 .WithMany(c => c.Books)
                 .HasForeignKey(b => b.CategoryId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Book - Publisher
+            modelBuilder.Entity<Book>()
+                .HasOne(b => b.Publisher)
+                .WithMany(p => p.Books)
+                .HasForeignKey(b => b.PublisherId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             // Book - CartDetail
@@ -92,5 +100,6 @@ namespace Infrastructure.DataContext
 
             base.OnModelCreating(modelBuilder);
         }
+
     }
 }

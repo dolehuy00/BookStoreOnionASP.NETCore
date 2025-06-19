@@ -3,6 +3,7 @@
     public class BookCatalogue
     {
         public int Id { get; set; }
+        public required string Code { get; set; }
         public int BookId { get; set; }
         public int CatalogueId { get; set; }
         public Book? Book { get; set; }

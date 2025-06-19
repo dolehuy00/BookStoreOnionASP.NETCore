@@ -8,6 +8,7 @@
         public required string Password { get; set; }
         public required string Phone { get; set; }
         public string? Address { get; set; }
+        public string? Image { get; set; }
         public int RoleId { get; set; }
         public Role? Role { get; set; }
         public Cart? Cart { get; set; }

@@ -46,7 +46,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Authorization policy for api
+// Authorization policy
 builder.Services.AddAuthorizationBuilder()
     .AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"))
     .AddPolicy("UserOnly", policy => policy.RequireRole("User"))
